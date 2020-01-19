@@ -15,7 +15,7 @@ namespace NendoViewer {
                 if (DateTime.TryParse(accepted, out parsed)) break;
             }
 
-            var provider = new NendoProvider();
+            var provider = new NendoProvider(4,1);
             Console.WriteLine($"現在年度は{provider.GetYearFromDate(parsed)}年度です。");
             Console.Read();
         }

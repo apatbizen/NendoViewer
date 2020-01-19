@@ -6,6 +6,14 @@ using System.Threading.Tasks;
 
 namespace NendoViewer {
     public class NendoProvider {
+        private int firstMonthOfNendo;
+        private int firstDayOfNendo;
+
+        public NendoProvider(int firstMonth, int firstDay) {
+            this.firstMonthOfNendo = firstMonth;
+            this.firstDayOfNendo = firstDay;
+        }
+
         /// <summary>
         /// 指定した日を含む年度を返す。
         /// </summary>
