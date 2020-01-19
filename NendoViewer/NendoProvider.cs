@@ -22,15 +22,11 @@ namespace NendoViewer {
         /// <param name="date">評価する日付</param>
         /// <returns>指定した日を含む年度</returns>
         public int GetYearFromDate(DateTime date) {
-            if(this.referenceAt == ReferenceAt.LastDate) {
-                if (date.Month < firstMonthOfNendo) return date.Year;
-                if (date.Month == firstMonthOfNendo && date.Day < firstDayOfNendo) return date.Year;
-                return date.Year+1;
-            } else {
-                if (date.Month < firstMonthOfNendo) return date.Year - 1;
-                if (date.Month == firstMonthOfNendo && date.Day < firstDayOfNendo) return date.Year - 1;
-                return date.Year;
-            }
+            int currentYear = date.Year;
+            if (this.referenceAt == ReferenceAt.LastDate) currentYear += 1;
+            if (date.Month == firstMonthOfNendo && date.Day < firstDayOfNendo) currentYear -= 1;
+            if (date.Month < firstMonthOfNendo) currentYear -= 1;
+            return currentYear;
         }
 
         public enum ReferenceAt {
