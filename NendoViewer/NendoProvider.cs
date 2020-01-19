@@ -9,7 +9,7 @@ namespace NendoViewer {
         private int firstMonthOfNendo;
         private int firstDayOfNendo;
 
-        public NendoProvider(int firstMonth, int firstDay) {
+        public NendoProvider(int firstMonth, int firstDay, ReferenceAt at = ReferenceAt.FirstDate) {
             this.firstMonthOfNendo = firstMonth;
             this.firstDayOfNendo = firstDay;
         }
@@ -23,6 +23,11 @@ namespace NendoViewer {
             if (date.Month < firstMonthOfNendo) return date.Year - 1;
             if (date.Month == firstMonthOfNendo && date.Day < firstDayOfNendo) return date.Year - 1;
             return date.Year;
+        }
+
+        public enum ReferenceAt {
+            FirstDate,
+            LastDate
         }
     }
 }
