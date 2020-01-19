@@ -19,5 +19,17 @@ namespace NendoViewerTest {
             var provider = new NendoProvider(4, 1);
             Assert.AreEqual(2019, provider.GetYearFromDate(new DateTime(2020, 3, 31)));
         }
+
+        [Test]
+        public void GetYearFromDate_ŠúŽñ“ú_1ŒŽ20“ú’÷() {
+            var provider = new NendoProvider(1, 21);
+            Assert.AreEqual(2010, provider.GetYearFromDate(new DateTime(2010, 1, 21)));
+        }
+
+        [Test]
+        public void GetYearFromDate_Šú––“ú_1ŒŽ20“ú’÷() {
+            var provider = new NendoProvider(1, 21);
+            Assert.AreEqual(2009, provider.GetYearFromDate(new DateTime(2010, 1, 20)));
+        }
     }
 }

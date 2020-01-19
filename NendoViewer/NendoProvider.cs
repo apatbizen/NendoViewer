@@ -20,7 +20,8 @@ namespace NendoViewer {
         /// <param name="date">評価する日付</param>
         /// <returns>指定した日を含む年度</returns>
         public int GetYearFromDate(DateTime date) {
-            if (date.Month <= 3) return date.Year - 1;
+            if (date.Month < firstMonthOfNendo) return date.Year - 1;
+            if (date.Month == firstMonthOfNendo && date.Day < firstDayOfNendo) return date.Year - 1;
             return date.Year;
         }
     }
